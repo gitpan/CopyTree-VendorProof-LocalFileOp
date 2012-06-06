@@ -6,7 +6,7 @@ use warnings;
 
 #our @ISA = qw(CopyTree::VendorProof); #if this weren't commented out, the use base below won't work
 
-our $VERSION = '0.0011';
+our $VERSION = '0.0012';
 use Carp ();
 use File::Basename ();
 use MIME::Base64 ();
@@ -170,6 +170,9 @@ CopyTree::VendorProof::LocalFileOp - Perl extension for providing a connecter in
 
 This module provides CopyTree::VendorProof a connector instance with methods to deal with local file operations.
 
+What?
+
+Oh, yes.  You've probabaly stumbled across this module because you wanted to copy something recursively.  Did you want to move some files into or off your SharePoint file server?  Did you buy Opentext's Livelink EWS and wish to automate some file transfers?  Well, this is kinda the right place, but it gets righter. Check out the documentation on my CopyTree::VendorProof module, where I have a priceless drill and screw analogy for how these modules all work together.  The information on this page is a tad too technical if all you're trying to decide is whether this is the module you need.
 
 =head1 SYNOPSIS
 
@@ -193,8 +196,6 @@ CopyTree::VendorProof::LocalFileOp does nothing flashy - it merely provides an i
 
 The methods provided in this connector objects include:
 
-=over
-
 	new
 	fdls				
 	is_fd
@@ -205,86 +206,23 @@ The methods provided in this connector objects include:
 	cust_rmdir
 	cust_rmfile
 
-=back
-
 The functionality of these methods are descripbed in 
-perldoc CopyTree::VendorProof and 
-perldoc CopyTree::VendorProof::LocalFileOp
+
+perldoc CopyTree::VendorProof 
 
 =head1 Instance Methods
 
-Since these are class methods, the first item from @_ is the instance itself, and should be stored in $inst, or whatever you'd like to call it. 
+You shouldn't have to invoke these methods manually.  Consult the documentation of 
 
-=head2 0. new
+	CopyTree::VendorProof 
 
-	which takes no arguments, but blesses an anonymous hash into the data connection object and returns it
-
-=head2 1. fdls
-
-	which takes two arguments:
-		an option ($lsoption) that's one of 'f', 'd', 'fdarrayrefs', or ''
-		and a directory path $startpath.
-		The lsoption is passed to the SUPER class fdls_ret, and is not handled at this level.
-	This method will generate @files and @dirs, which are lists of files and directories that start with $startpath,
-	And return $self -> SUPER::fdls_ret ($lsoption, \@files, \@dirs),
-	which is ultimately a listing of the directory content, being one of
-		@files, @dirs, (\@files, \@dirs), or  @files_and_dirs) depending on the options being 'f', 'd', 'fdarrayrefs' or ''
-
-=head2 2. is_fd
-
-	which takes a single argument of a file or dir $path,
-	and returns 'd' for directory, 
-		'f' for file,
-		'pd' for non-existing, but has a valid parent dir,
-		'0' for non of the above.
-
-=head2 3. read_into_memory
-
-	which takes the $sourcepath of a file, 
-	and reads (slurps) it into a scalar $binfile #preferably in binmode,
-	and returns it as \$binfile
-
-=head2 4. write_from_memory
-
-	which takes the reference to a scalar $binfile (\$binfile)  PLUS 
-	a destination path, and writes the scalar to the destination.
-	no return is necessary
-
-=head2 5. copy_local_files
-
-	which takes the $source and $destination files on the same file system, 
-	and copies from $source to $destination.  No return is necessary.  This 
-	method is included such that entirely remote operations may transfer faster,
-	without an intermediate 'download to local machine' step.
-
-=head2 6. cust_mkdir
-
-	which takes a $dirpath and creates the dir.  If the parent of $dirpah
-	does not exist, give a warning and do not do anything
-
-=head2 7. cust_rmdir
-
-	which takes a $dirpath and removes the entire dir tree from $dirpath
-	croaks / dies if $dirpath is not a dir. No return is necessary.
-	To make things easier, when writing this method, use
-
-	my ($filesref, $dirsref) = $inst -> ls_tree_fdret( $dirpath, $inst -> ls_tree($dirpath);
-
-	to get array references of @files and @dirs under $dirpath
-	Note: ls_tree and ls_tree_fdret uses fdls, and are parent classes in CopyTree::VendorProof 
-
-=head2 8. cust_rmfile
-
-	which takes a $filepath and removes it.
-	croaks / dies if $file is not a file. 
-
-
-
+And look under the section "Object specific instance methods for the base class CopyTree::VendorProof"
 
 =head1 SEE ALSO
 
 CopyTree::VendorProof
 SharePoint::SOAPHandler
+Livelink::DAV
 
 =head1 AUTHOR
 
@@ -294,9 +232,6 @@ dbmolester, dbmolester de gmail.com
 
 Copyright (C) 2011 by dbmolester
 
-This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself, either Perl version 5.10.1 or,
-at your option, any later version of Perl 5 you may have available.
-
+This library is free software; you can redistribute it and/or modify it under the same terms as Perl itself, either Perl version 5.10.1 or, at your option, any later version of Perl 5 you may have available.  
 
 =cut

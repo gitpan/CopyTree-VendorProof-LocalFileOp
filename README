@@ -1,4 +1,4 @@
-CopyTree-VendorProof-LocalFileOp version 0.0011
+CopyTree-VendorProof-LocalFileOp version 0.0012
 ===============================
 
 This module provides CopyTree::VendorProof a connector instance with methods to deal with local file operations.
@@ -15,8 +15,9 @@ The methods provided in this connector objects include:
 	cust_rmfile
 
 The functionality of these methods are descripbed in 
-perldoc CopyTree::VendorProof and 
-perldoc CopyTree::VendorProof::LocalFileOp
+perldoc CopyTree::VendorProof
+
+Under the section "Object specific instance methods for the base class CopyTree::VendorProof"
 
 To create a LocalFileOp connector instance:
 	my $lcfo_inst = CopyTree::VendorProof::LocalFileOp ->new;

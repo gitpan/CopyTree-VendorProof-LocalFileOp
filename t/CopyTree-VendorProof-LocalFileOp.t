@@ -5,7 +5,8 @@
 
 # change 'tests => 1' to 'tests => last_test_to_print';
 
-use Test::More qw/no_plan/;
+use Test::More tests=>37;
+#use Test::More qw/no_plan/;
 BEGIN { use_ok('CopyTree::VendorProof::LocalFileOp') };
 #BEGIN{
 #my $isajoin = join (' ', @ISA);
