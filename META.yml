@@ -1,5 +1,5 @@
 ---
-abstract: 'Perl extension for providing a connecter instance for CopyTree::VendorProof.'
+abstract: 'Perl extension for providing a local (mounted filesystem) connecter instance for CopyTree::VendorProof.'
 author:
   - 'dbmolester de gmail.com'
 build_requires:
@@ -23,4 +23,4 @@ requires:
   Data::Dumper: 0
   File::Basename: 0
   MIME::Base64: 0
-version: 0.0012
+version: 0.0013

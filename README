@@ -1,9 +1,9 @@
-CopyTree-VendorProof-LocalFileOp version 0.0012
+CopyTree-VendorProof-LocalFileOp version 0.0013
 ===============================
 
-This module provides CopyTree::VendorProof a connector instance with methods to deal with local file operations.
+This module provides a new [sic.] contructor and necessary subclass methods for CopyTree::VendorProof in order to deal with local file operations.
 
-The methods provided in this connector objects include:
+The subclass methods provided in this connector objects include:
 	new
 	fdls				
 	is_fd

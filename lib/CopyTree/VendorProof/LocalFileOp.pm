@@ -6,7 +6,7 @@ use warnings;
 
 #our @ISA = qw(CopyTree::VendorProof); #if this weren't commented out, the use base below won't work
 
-our $VERSION = '0.0012';
+our $VERSION = '0.0013';
 use Carp ();
 use File::Basename ();
 use MIME::Base64 ();
@@ -166,9 +166,9 @@ __END__
 
 =head1 NAME
 
-CopyTree::VendorProof::LocalFileOp - Perl extension for providing a connecter instance for CopyTree::VendorProof.
+CopyTree::VendorProof::LocalFileOp - Perl extension for providing a local (mounted filesystem) connecter instance for CopyTree::VendorProof.
 
-This module provides CopyTree::VendorProof a connector instance with methods to deal with local file operations.
+This module provides CopyTree::VendorProof a connector instance with subclass methods to deal with local file operations.
 
 What?
 
@@ -192,9 +192,9 @@ To add a source or destination item to a CopyTree::VendorProof instance:
 
 =head1 DESCRIPTION
 
-CopyTree::VendorProof::LocalFileOp does nothing flashy - it merely provides an instance and local file operation methods for its parent class, CopyTree::VendorProof.
+CopyTree::VendorProof::LocalFileOp does nothing flashy - it merely provides a constructor method (new) and local file operation subclass methods for its parent class, CopyTree::VendorProof.
 
-The methods provided in this connector objects include:
+The subclass methods provided in this connector objects include:
 
 	new
 	fdls				
@@ -206,11 +206,15 @@ The methods provided in this connector objects include:
 	cust_rmdir
 	cust_rmfile
 
-The functionality of these methods are descripbed in 
+The functionality of these methods are described in 
 
-perldoc CopyTree::VendorProof 
+	CopyTree::VendorProof 
+
+Under the section "Object specific instance methods for the base class CopyTree::VendorProof"
 
 =head1 Instance Methods
+
+This module only contain subclass methods described above.  Since perl knows how to handle local files, there's no point re-writing anything other than present these perl functions as recognizable methods for the parent class.
 
 You shouldn't have to invoke these methods manually.  Consult the documentation of 
 

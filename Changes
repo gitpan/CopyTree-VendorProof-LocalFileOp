@@ -1,5 +1,10 @@
 Revision history for Perl extension CopyTree::VendorProof::LocalFileOp.
 
+0.0013 Thr Jun  7 10:26:00 2012
+	-updated README, and .pm file, with new version number
+	-updated README content and .pm POD
+	-no code changes since version 0.0011
+
 0.0012  Thr May 31 11:04:00 2012
 	- updated README, pm file, META.yml version numbers
 	- updated POD in pm to include examples for fdls
